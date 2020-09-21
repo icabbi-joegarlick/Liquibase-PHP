@@ -11,6 +11,8 @@ RUN apt update
 RUN apt -y install lsb-release apt-transport-https ca-certificates
 RUN apt -y install php
 
+RUN apt -y install php-mysql
+
 # Add the liquibase user and step in the directory
 RUN addgroup --gid 1001 liquibase
 RUN adduser --disabled-password --uid 1001 --ingroup liquibase liquibase
