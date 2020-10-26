@@ -13,9 +13,13 @@ RUN apt -y install php
 
 RUN apt -y install php-mysql
 
+RUN apt -y install sudo
+
 # Add the liquibase user and step in the directory
 RUN addgroup --gid 1001 liquibase
 RUN adduser --disabled-password --uid 1001 --ingroup liquibase liquibase
+
+RUN usermod -aG sudo liquibase
 
 # Make /liquibase directory and change owner to liquibase
 RUN mkdir /liquibase && chown liquibase /liquibase
