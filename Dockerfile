@@ -15,6 +15,11 @@ RUN apt -y install php-mysql
 
 RUN apt -y install sudo
 
+RUN apt-get install curl unzip -y
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
+
 # Add the liquibase user and step in the directory
 RUN addgroup --gid 1001 liquibase
 RUN adduser --disabled-password --uid 1001 --ingroup liquibase liquibase
